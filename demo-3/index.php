@@ -1,9 +1,15 @@
 <?php
 
+namespace Styde;
+
 require 'src/helpers.php';
 
-spl_autoload_register( function ($class){
-    require "src/$class.php";
+spl_autoload_register( function ($class) {
+
+    if ( strpos($class, 'Styde\\') === 0 ){
+        $class = str_replace('Styde\\', '', $class);
+        require "src/$class.php";
+    }
 });
 
 
@@ -17,7 +23,7 @@ $black->attack($dark);
 
 echo "<hr>";
 
-$dark->setArmor(new SilverArmor());
+$dark->setArmor (new SilverArmor());
 $black->setArmor(new SilverArmor());
 
 $dark->attack($black);
@@ -25,7 +31,7 @@ $black->attack($dark);
 
 echo "<hr>";
 
-$dark->setArmor(new BronzeArmor());
+$dark->setArmor (new BronzeArmor());
 $black->setArmor(new BronzeArmor());
 
 $dark->attack($black);

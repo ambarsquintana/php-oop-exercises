@@ -1,6 +1,8 @@
 <?php
 
 
+namespace Styde;
+
 abstract class Unit
 {
     protected $hp = 40;

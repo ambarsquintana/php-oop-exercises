@@ -3,8 +3,6 @@
 
 namespace Styde;
 
-use Warcraft\Armor;
-
 
 abstract class Unit
 {
@@ -30,7 +28,8 @@ abstract class Unit
     }
 
     //Setters Methods
-    public function setArmor (Armor $armor = null){
+    public function setArmor (Armor $armor = null)
+    {
         $this->armor = $armor;
     }
 
@@ -64,7 +63,7 @@ abstract class Unit
 
     protected function absorbDamage($damage)
     {
-        if ($this->armor){
+        if ($this->armor) {
             $damage = $this->armor->absorbDamage($damage);
         }
 

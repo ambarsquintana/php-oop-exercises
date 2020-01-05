@@ -2,17 +2,10 @@
 
 namespace Styde;
 
-require 'src/helpers.php';
-require 'vendor/Armor.php';
+require '../vendor/autoload.php';
 
-spl_autoload_register( function ($class) {
-
-    if ( strpos($class, 'Styde\\') === 0 ){
-        $class = str_replace('Styde\\', '', $class);
-        require "src/$class.php";
-    }
-});
-
+use Styde\Armors\SilverArmor;
+use Styde\Armors\BronzeArmor;
 
 /////////////////////////////////////////////////////////
 

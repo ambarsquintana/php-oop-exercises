@@ -1,8 +1,8 @@
 <?php
 
-namespace Styde;
+namespace Styde\Armors;
 
-use Warcraft\Armor;
+use Styde\Armor;
 
 
 class BronzeArmor implements Armor

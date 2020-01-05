@@ -1,0 +1,19 @@
+{
+    "name": "styde/oop",
+    "description": "object-oriented programming exercises in php",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ambar Quintana",
+            "email": "ambarsquintana@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "files": ["src/helpers.php"],
+        "psr-4": {
+            "Styde\\": "src/"
+        }
+    }
+}

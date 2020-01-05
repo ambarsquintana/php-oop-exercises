@@ -3,6 +3,9 @@
 
 namespace Styde;
 
+use Warcraft\Armor;
+
+
 abstract class Unit
 {
     protected $hp = 40;

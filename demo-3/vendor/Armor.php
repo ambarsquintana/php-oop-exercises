@@ -1,6 +1,6 @@
 <?php
 
-namespace Styde;
+namespace Warcraft;
 
 interface Armor
 {

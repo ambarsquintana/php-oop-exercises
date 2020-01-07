@@ -4,6 +4,9 @@
 namespace Styde;
 
 
+use Styde\Armors\MissingArmor;
+
+
 class Unit
 {
     protected $hp = 40;
@@ -15,7 +18,7 @@ class Unit
     {
         $this->name = $name;
         $this->weapon = $weapon;
-
+        $this->setArmor(new MissingArmor());
     }
 
     //Getters Methods
@@ -52,7 +55,7 @@ class Unit
 
     public function takeDamage(Attack $attack)
     {
-        $this->hp -= $this->absorbDamage($attack);
+        $this->hp -= $this->armor->absorbDamage($attack);
 
         $this->hp = round($this->hp , 2);
 
@@ -63,15 +66,6 @@ class Unit
         if ($this->hp <= 0) {
             $this->die();
         }
-    }
-
-    protected function absorbDamage(Attack $attack)
-    {
-        if ($this->armor) {
-            return $this->armor->absorbDamage($attack);
-        }
-
-        return $attack->getDamage();
     }
 
     public function die()

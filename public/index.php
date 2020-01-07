@@ -4,29 +4,18 @@ namespace Styde;
 
 require '../vendor/autoload.php';
 
-use Styde\Armors\SilverArmor;
 use Styde\Armors\BronzeArmor;
+use Styde\Weapons\BasicSword;
+use Styde\Weapons\CrossBow;
 
 /////////////////////////////////////////////////////////
 
-$black = new Soldier('Soldier Black', new BronzeArmor());
-$dark  = new Archer ('Archer Dark'  , new BronzeArmor());
+$ramm = new Soldier('Ramm', new BasicSword());
+$silence  = new Archer ('Silence', new CrossBow);
 
-$dark->attack($black);
-$black->attack($dark);
+$ramm->setArmor (new BronzeArmor());
 
-echo "<hr>";
+$silence->attack($ramm);
+$silence->attack($ramm);
 
-$dark->setArmor (new SilverArmor());
-$black->setArmor(new SilverArmor());
-
-$dark->attack($black);
-$black->attack($dark);
-
-echo "<hr>";
-
-$dark->setArmor (new BronzeArmor());
-$black->setArmor(new BronzeArmor());
-
-$dark->attack($black);
-$black->attack($dark);
+$ramm->attack($silence);

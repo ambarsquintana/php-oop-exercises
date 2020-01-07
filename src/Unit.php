@@ -9,11 +9,13 @@ abstract class Unit
     protected $hp = 40;
     protected $name;
     protected $armor;
+    protected $weapon;
 
-    public function __construct($name, Armor $armor = null)
+    public function __construct($name, Weapon $weapon)
     {
         $this->name = $name;
-        $this->setArmor($armor);
+        $this->weapon = $weapon;
+
     }
 
     //Getters Methods
@@ -39,7 +41,11 @@ abstract class Unit
         show("{$this->name} se mueve a {$direction}");
     }
 
-    abstract public function attack(Unit $opponent);
+    public function attack(Unit $opponent)
+    {
+        show($this->weapon->getDescription($this, $opponent));
+        $opponent->takeDamage($this->weapon->getDamage());
+    }
 
     public function die()
     {

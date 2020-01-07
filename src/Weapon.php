@@ -4,14 +4,13 @@
 namespace Styde;
 
 
-abstract class Weapon
+class Weapon
 {
     protected $damage = 20;
+    protected $magical = false;
 
-    public function getDamage()
+    public function createAttack()
     {
-        return $this->damage;
+        return new Attack($this->damage, $this->magical, $this->description);
     }
-
-    abstract function getDescription(Unit $attacker, Unit $opponent);
 }

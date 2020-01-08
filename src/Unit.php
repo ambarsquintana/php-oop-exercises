@@ -3,7 +3,6 @@
 
 namespace Styde;
 
-
 use Styde\Armors\MissingArmor;
 
 
@@ -33,7 +32,7 @@ class Unit
     }
 
     //Setters Methods
-    public function setArmor (Armor $armor = null)
+    public function setArmor (Armor $armor)
     {
         $this->armor = $armor;
     }

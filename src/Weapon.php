@@ -11,6 +11,11 @@ class Weapon
 
     public function createAttack()
     {
-        return new Attack($this->damage, $this->magical, $this->description);
+        return new Attack($this->damage, $this->magical, $this->getDescriptionKey());
+    }
+
+    protected function getDescriptionKey()
+    {
+        return str_replace('Styde\Weapons\\', '', get_class($this).'Attack');
     }
 }

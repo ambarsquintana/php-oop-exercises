@@ -4,6 +4,8 @@
 namespace Styde;
 
 use Styde\Armors\MissingArmor;
+use Styde\Weapons\BasicBow;
+use Styde\Weapons\BasicSword;
 
 
 class Unit
@@ -35,6 +37,13 @@ class Unit
     public function setArmor (Armor $armor)
     {
         $this->armor = $armor;
+        return $this;
+    }
+
+    public function setWeapon (Weapon $weapon)
+    {
+        $this->weapon = $weapon;
+        return $this;
     }
 
     //Methods
@@ -71,5 +80,16 @@ class Unit
     {
         show("{$this->name} muere");
         exit();
+    }
+
+    //Static methods
+    public static function createSoldier($name)
+    {
+        return new Unit($name, new BasicSword());
+    }
+
+    public static function createArcher($name)
+    {
+        return new Unit($name, new BasicBow());
     }
 }

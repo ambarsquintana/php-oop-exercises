@@ -5,7 +5,6 @@ namespace Styde;
 require '../vendor/autoload.php';
 
 use Styde\Armors\SilverArmor;
-use Styde\Weapons\BasicSword;
 use Styde\Weapons\FireBow;
 
 /////////////////////////////////////////////////////////
@@ -19,12 +18,13 @@ Translator::set([
 
 /////////////////////////////////////////////////////////
 
-$ramm = new Unit('Ramm', new BasicSword());
-$silence  = new Unit('Silence', new FireBow());
 
-$ramm->setArmor (new SilverArmor());
+$ramm = Unit::createSoldier('Ramm')
+                ->setArmor(new SilverArmor());
+
+$silence = Unit::createArcher('Silence')
+                ->setWeapon(new FireBow());
 
 $silence->attack($ramm);
 $silence->attack($ramm);
-
 $ramm->attack($silence);

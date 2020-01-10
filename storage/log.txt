@@ -1,0 +1,5 @@
+(2020-01-10 21:36:27) Silence dispara una flecha de fuego a Ramm
+(2020-01-10 21:36:27) Ramm tiene 10 puntos de vida
+(2020-01-10 21:36:27) Silence dispara una flecha de fuego a Ramm
+(2020-01-10 21:36:27) Ramm tiene 0 puntos de vida
+(2020-01-10 21:36:27) Ramm muere

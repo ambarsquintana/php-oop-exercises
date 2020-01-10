@@ -5,6 +5,7 @@ namespace Styde;
 require '../vendor/autoload.php';
 
 use Styde\Armors\SilverArmor;
+use Styde\Loggers\HtmlLogger;
 use Styde\Weapons\FireBow;
 
 /////////////////////////////////////////////////////////
@@ -18,6 +19,7 @@ Translator::set([
 
 /////////////////////////////////////////////////////////
 
+Log::setLogger(new HtmlLogger);
 
 $ramm = Unit::createSoldier('Ramm')
                 ->setArmor(new SilverArmor());

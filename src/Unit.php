@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Styde;
 
 use Styde\Armors\MissingArmor;
@@ -49,14 +48,14 @@ class Unit
     //Methods
     public function move($direction)
     {
-        show("{$this->name} se mueve a {$direction}");
+        Log::info("{$this->name} se mueve a {$direction}");
     }
 
     public function attack(Unit $opponent)
     {
         $attack = $this->weapon->createAttack();
 
-        show($attack->getDescription($this, $opponent));
+        Log::info($attack->getDescription($this, $opponent));
 
         $opponent->takeDamage($attack);
     }
@@ -64,12 +63,10 @@ class Unit
     public function takeDamage(Attack $attack)
     {
         $this->hp -= $this->armor->absorbDamage($attack);
-
         $this->hp = round($this->hp , 2);
-
         $this->hp = ($this->hp <0 ) ? 0 : $this->hp;
 
-        show("{$this->name} tiene {$this->hp} puntos de vida");
+        Log::info("{$this->name} tiene {$this->hp} puntos de vida");
 
         if ($this->hp <= 0) {
             $this->die();
@@ -78,7 +75,7 @@ class Unit
 
     public function die()
     {
-        show("{$this->name} muere");
+        Log::info("{$this->name} muere");
         exit();
     }
 

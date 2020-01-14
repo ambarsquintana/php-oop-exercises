@@ -21,13 +21,3 @@ echo "<p>Bienvenido {$user->first_name} {$user->last_name}</p>";
 if (isset($user->nickname)) {
     echo "<p>Nickname: {$user->nickname}</p>";
 }
-
-var_dump($user->getAttributes());
-
-//////////////////////////////////////////////
-
-unset($user->nickname);
-
-echo "<br><br>";
-
-var_dump($user->getAttributes());

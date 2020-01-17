@@ -29,6 +29,16 @@ class HtmlNode
     }
 
 
+    public static function __callStatic($method, array $args = [])
+    {
+        $content = isset($args[0]) ? $args[0] : null;
+
+        $attributes = isset($args[1]) ? $args[1] : [];
+
+        return new HtmlNode($method, $content, $attributes);
+    }
+
+
     public function render()
     {
         $result = "<{$this->tag} {$this->renderAttributes()}>";

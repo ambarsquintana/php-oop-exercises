@@ -10,7 +10,9 @@
         }
     ],
     "require": {},
+
     "autoload": {
+
         "psr-4": {
             "Styde\\": "src/"
         }

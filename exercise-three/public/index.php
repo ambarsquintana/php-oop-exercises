@@ -1,23 +1,26 @@
 <?php
 
-//require '../vendor/autoload.php';
+require '../vendor/autoload.php';
 
-class UnaClase
-{
-    public function __call($name, array $arguments)
-    {
-        var_dump($name, $arguments);
-    }
+use Styde\HtmlNode;
 
-    public static function __callStatic($name, array $arguments)
-    {
-        var_dump($name, $arguments);
-    }
+$node = new HtmlNode(
+        'input',
+        null,
+        [
+            'name' => 'first_name',
+            'type' => 'text'
+        ]
+    );
 
-}
+$node2 = new HtmlNode(
+    'textarea',
+    'Soy un contenido',
+    [
+        'name' => 'content'
+    ]
+);
 
-$unObjeto = new UnaClase();
-
-$unObjeto->unMetodo('Un argumento', 'Otro argumento');
-
-UnaClase::unMetodoEstatico('Un argumento', 'Otro argumento');
+echo $node->render();
+echo "<br><br>";
+echo $node2->render();

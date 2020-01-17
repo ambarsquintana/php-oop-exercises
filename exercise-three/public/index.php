@@ -4,6 +4,7 @@ require '../vendor/autoload.php';
 
 use Styde\HtmlNode;
 
+
 $node = new HtmlNode(
         'input',
         null,
@@ -13,13 +14,14 @@ $node = new HtmlNode(
         ]
     );
 
-$node2 = new HtmlNode(
-    'textarea',
-    'Soy un contenido',
-    [
-        'name' => 'content'
-    ]
-);
+
+$node2 = (new HtmlNode('textarea', 'Soy un contenido'))
+            ->name('content')
+            ->id('content');
+
+
+
+/////////////////////////////////
 
 echo $node->render();
 echo "<br><br>";

@@ -2,6 +2,7 @@
 
 namespace Styde;
 
+
 class HtmlNode
 {
     protected $tag;
@@ -14,6 +15,17 @@ class HtmlNode
         $this->tag = $tag;
         $this->content = $content;
         $this->attributes = $attributes;
+    }
+
+
+    public function __call($method, array $args = [])
+    {
+        if (!isset($args[0])) {
+            throw new \Exception("You forgot to pass the value to the attribute {$method}");
+        }
+
+        $this->attributes[$method] = $args[0];
+        return $this;
     }
 
 

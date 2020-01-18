@@ -18,27 +18,7 @@ class HtmlNode
     }
 
 
-    public function __call($method, array $args = [])
-    {
-        if (!isset($args[0])) {
-            throw new \Exception("You forgot to pass the value to the attribute {$method}");
-        }
-
-        $this->attributes[$method] = $args[0];
-        return $this;
-    }
-
-
-    public static function __callStatic($method, array $args = [])
-    {
-        $content = isset($args[0]) ? $args[0] : null;
-
-        $attributes = isset($args[1]) ? $args[1] : [];
-
-        return new HtmlNode($method, $content, $attributes);
-    }
-
-
+    //Methods
     public function render()
     {
         $result = "<{$this->tag} {$this->renderAttributes()}>";
@@ -64,5 +44,34 @@ class HtmlNode
 
         return $result;
     }
+
+
+    //Magic methods
+    public function __call($method, array $args = [])
+    {
+        if (!isset($args[0])) {
+            throw new \Exception("You forgot to pass the value to the attribute {$method}");
+        }
+
+        $this->attributes[$method] = $args[0];
+        return $this;
+    }
+
+
+    public static function __callStatic($method, array $args = [])
+    {
+        $content = isset($args[0]) ? $args[0] : null;
+
+        $attributes = isset($args[1]) ? $args[1] : [];
+
+        return new HtmlNode($method, $content, $attributes);
+    }
+
+
+    public function __toString()
+    {
+        return $this->render();
+    }
+
 
 }

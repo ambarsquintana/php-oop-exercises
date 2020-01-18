@@ -12,4 +12,4 @@ $node = HtmlNode::textarea('Soy un contenido')
 
 /////////////////////////////////
 
-echo $node->render();
+echo $node;

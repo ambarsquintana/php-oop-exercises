@@ -13,3 +13,8 @@ $node = HtmlNode::textarea('Soy un contenido')
 /////////////////////////////////
 
 echo $node;
+
+echo "<br><br>";
+
+echo $node('name');
+echo $node('disable');

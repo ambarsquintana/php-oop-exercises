@@ -18,6 +18,12 @@ class HtmlNode
     }
 
 
+    public function getAttributes($name)
+    {
+        return $this->attributes[$name] ?? null;
+    }
+
+
     //Methods
     public function render()
     {
@@ -73,5 +79,10 @@ class HtmlNode
         return $this->render();
     }
 
+
+    public function __invoke($name)
+    {
+        return $this->getAttributes($name);
+    }
 
 }

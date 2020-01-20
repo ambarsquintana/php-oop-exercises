@@ -3,9 +3,11 @@
 namespace Styde;
 
 
-use Iterator;
+use IteratorAggregate;
+use ArrayIterator;
+use Countable;
 
-class LunchBox implements Iterator
+class LunchBox implements IteratorAggregate, Countable
 {
     protected $food = [];
     protected $original = true;
@@ -42,29 +44,14 @@ class LunchBox implements Iterator
 
 
 //////////////////
-    public function rewind()
+    public function getIterator()
     {
-        $this->position = 0;
+        return new ArrayIterator($this->food);
     }
 
-    public function current()
+    public function count()
     {
-        return $this->food[$this->position];
-    }
-
-    public function key()
-    {
-        return $this->position;
-    }
-
-    public function next()
-    {
-        ++$this->position;
-    }
-
-    public function valid()
-    {
-        return isset($this->food[$this->position]);
+        return count($this->food);
     }
 //////////////////
 }

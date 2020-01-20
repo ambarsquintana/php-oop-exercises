@@ -38,6 +38,8 @@ class User extends Model
 
     public function eatMeal()
     {
+        echo "{$this->name} tienen {$this->lunch->count()} alimentos";
+
         foreach ($this->lunch as $food) {
             echo "<p>{$this->name} eats {$food}</p>";
         }

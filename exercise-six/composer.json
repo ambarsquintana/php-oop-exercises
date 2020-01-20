@@ -1,0 +1,20 @@
+{
+    "name": "styde/oop",
+    "description": "object-oriented programming in php\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[Dexercises in php",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ambar Quintana",
+            "email": "ambarsquintana@gmail.com"
+        }
+    ],
+    "require": {},
+
+    "autoload": {
+
+        "psr-4": {
+            "Styde\\" : "src/"
+        }
+    }
+}
